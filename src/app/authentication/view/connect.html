@@ -1,0 +1,31 @@
+<div class='view-container central-full'>
+  <form id='connectForm' name='connectForm' novalidate autocomplete='off'>
+    <div>
+      <img class='logo' src='assets/images/logo.png'>
+      <h2>{{resource.signin}}</h2>
+      <div [className]='"message " + alertClass'>
+        {{message}}
+        <span (click)='hideMessage()' [hidden]='!message || message == ""'></span>
+      </div>
+      <button type='button' id='btnConnectLinkedIn' name='btnConnectLinkedIn' (click)="connect('LinkedIn')">
+        <i class='fa fa-linkedin pull-left'></i>
+        {{resource.connect_linkedin}}
+      </button>
+      <button type='button' id='btnConnectGoogle' name='btnConnectGoogle' (click)="connect('Google')">
+        <i class='fa fa-google pull-left'></i>
+        {{resource.connect_google}}
+      </button>
+      <button type='button' id='btnConnectFacebook' name='btnConnectFacebook' (click)="connect('Facebook')">
+        <i class='fa fa-facebook pull-left'></i>
+        {{resource.connect_facebook}}
+      </button>
+      <button type='submit' id='btnSignin' name='btnSignin' (click)='signin()'>
+        <i class='fa fa-envelope-o pull-left'></i>
+        {{resource.connect_username}}
+      </button>
+      <button type='button' class='btn-cancel' id='btnCancel' name='btnCancel' (click)='back()'>
+        {{resource.button_back}}
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+  <title>Angular Example App</title>
+
+  <meta content='Angular example app is a base project to start coding with Angular' name='description'>
+  <meta charset="utf-8">
+
+  <meta http-equiv="Content-Security-Policy"
+        content="
+          default-src * 'unsafe-inline' 'unsafe-eval'
+          data:
+          blob:
+          wss:
+
+          http://*.google-analytics.com
+          http://*.googletagmanager.com
+
+          https://*.google-analytics.com
+          https://angularexampleapp.com
+          https://*.googletagmanager.com
+          https://*.gstatic.com
+          https://*.googleapis.com
+          https://*.herokuapp.com
+          https://authedmine.com
+
+          ws://localhost:4200;
+    ">
+
+  <!--<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://cdnjs.cloudflare.com ">-->
+
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="canonical" href="http://angularexampleapp.com/">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP"
+        crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet">
+</head>
+<body id="sysBody" class="full-header classic top-menu">
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TF7QP5M" height="0" width="0"
+          style="display:none;visibility:hidden"></iframe>
+</noscript>
+<div id="sysToast" class="toast-message alert-success"></div>
+<div id="sysLoading" class="loader-wrapper" style="display:none">
+  <div class="loader-sign">
+    <div class="loader"></div>
+  </div>
+</div>
+<div id="sysAlert" class="alert-wrapper">
+  <div class="alert">
+    <div>
+      <div id="sysIcon" class="alert-icon"></div>
+      <h4 id="sysMessageHeader"></h4>
+      <p id="sysMessage"></p>
+    </div>
+    <!--
+    <div class="sa-error-detail-caret" style="display: none">
+      <a href="javascript:void(0)" onclick="toggleErrorDetail()">Detail
+        <span id="sysErrorDetailCaret" class="fa fa-caret-up"></span>
+      </a>
+    </div>
+    <div id="sysErrorDetail" class="sa-error-container">
+      <div class="icon"></div>
+      <p id="sysErrorDetailText"></p>
+    </div>
+    -->
+    <footer>
+      <button type='button' class='btn-cancel' id='sysNo' name='btnCancel' onclick="noOnClick()" />
+      <button type='submit' class='btn-accept' id='sysYes' name='btnAccept' onclick="yesOnClick()" />
+    </footer>
+  </div>
+</div>
+<script>
+  var sysAlert, sysYes;
+
+  function initDoc() {
+    sysAlert = document.getElementById("sysAlert");
+    sysYes = document.getElementById("sysYes");
+  }
+
+  initDoc();
+  var yesOnClick = function () {
+    sysAlert.style.display = 'none';
+    if (window.fyesOnClick) {
+      window.fyesOnClick();
+    }
+    const input = sysYes['activeElement'];
+    if (input) {
+      try {
+        input.focus();
+      } catch (err) {}
+    }
+    sysYes['activeElement'] = null;
+  };
+  var noOnClick = function () {
+    sysAlert.style.display = 'none';
+    if (window.fnoOnClick) {
+      window.fnoOnClick();
+    }
+    const input = sysYes['activeElement'];
+    if (input) {
+      try {
+        input.focus();
+      } catch (err) {}
+    }
+    sysYes['activeElement'] = null;
+  };
+
+  var callCount = 0;
+</script>
+<app-root>Loading...</app-root>
+<script src="assets/js/main.js" type="text/javascript"></script>
+</body>
+</html>

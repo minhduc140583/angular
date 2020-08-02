@@ -1,0 +1,3 @@
+<select [(ngModel)]="currentPageSize" (change)="onPageSizeChanged($event)">
+  <option *ngFor="let pgSize of pageSizes" [value]="pgSize">{{pgSize}}</option>
+</select>

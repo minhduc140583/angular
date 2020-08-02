@@ -1,0 +1,56 @@
+<div class="view-container">
+  <form id="articleForm" name="articleForm" class="form" novalidate>
+    <div class="view-header">
+      <button type="button" class="btn-back" (click)="back()"><i class="fa fa-angle-left"></i></button>
+      <div class="view-title">{{resource.article}}</div>
+      <div class="view-subtitle">{{article.name}}</div>
+    </div>
+    <div class="view-body">
+      <div class="row">
+        <div class="sub-header col">{{resource.person_basicInformation}}</div>
+      </div>
+      <div class="row">
+        <div class="form-group col s12 m6">
+          <label for="title">{{resource.article_title}}</label>
+          <input type="text" class="form-control" id="title" name="title" [(ngModel)]="article.title"
+                 placeholder="{{resource.article_title}}" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col s12 m6">
+          <label for="description">{{resource.article_description}}</label>
+          <input type="text" class="form-control" id="description" name="description" [(ngModel)]="article.description"
+                 placeholder="{{resource.article_description}}" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col s12 m6">
+          <label>{{resource.article_body}}</label>
+          <app-text-editor  (change)="editorChange($event)"></app-text-editor>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col s12 m6">
+          <label>{{resource.status}}</label>
+          <div class="radio-group">
+            <label class="radio-container">{{resource.status_active}}
+              <input type="radio" id="active" name="status" value="A" [(ngModel)]="article.status">>
+              <span class="checkmark"></span>
+            </label>
+            <label class="radio-container">{{resource.status_inactive}}
+              <input type="radio" id="inactive" name="status" value="I" [(ngModel)]="article.status">>
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="btn-group footer col s8 m6 l4 offset-s2 offset-m3 offset-l4">
+          <button type="button" class="btn btn-primary" id="btnSave" name="btnSave" (click)="saveOnClick()">
+            {{resource.button_save}}
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
